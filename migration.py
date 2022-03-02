@@ -8,6 +8,11 @@ DATA_MIGRATION_FILE_PATH = 'migration.sql'
 
 
 def get_sql_from_file(file_name):
+    """
+    Получить sql из файла, переданного в качестве параметра
+    :param file_name: имя файла
+    :return: sql запрос
+    """
 
     content = ''
     if isfile(file_name):
@@ -17,6 +22,10 @@ def get_sql_from_file(file_name):
 
 
 def main():
+    """
+    Установить соединение с БД, создать новые таблицы, осуществить миграцию данных
+    :return: ничего не возвращает
+    """
     connection = sqlite3.connect(DATABASE_PATH)
     cursor = connection.cursor()
 

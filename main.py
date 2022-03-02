@@ -12,6 +12,11 @@ def serialize_row(row):
 
 @app.route('/<animal_id>')
 def get_animal_by_id(animal_id):
+    """
+    Получить данные из БД по id животного
+    :param animal_id: id животного
+    :return: жсон с данными по одному животному. Часть данных передана айдишниками значений
+    """
     conn: sqlite3.Connection = app.config['db']
     cursor = conn.cursor()
 
@@ -27,6 +32,11 @@ def get_animal_by_id(animal_id):
 
 @app.route('/<animal_id>/full')
 def get_animal_by_id_full(animal_id):
+    """
+    Получить данные из БД по id животного
+    :param animal_id: id животного
+    :return: жсон с данными по одному животному. Все данные передаются значениями
+    """
     conn: sqlite3.Connection = app.config['db']
     cursor = conn.cursor()
 
